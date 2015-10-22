@@ -1,0 +1,22 @@
+Overload resolution (C++ only)
+
+The process of selecting the most appropriate overloaded function or operator is called overload resolution.
+
+Suppose that f is an overloaded function name. When you call the overloaded function f(), the compiler creates a set of 
+candidate functions. This set of functions includes all of the functions named f that can be accessed from the point 
+where you called f(). The compiler may include as a candidate function an alternative representation of one of those 
+accessible functions named f to facilitate overload resolution.
+
+After creating a set of candidate functions, the compiler creates a set of viable functions. This set of functions is a 
+subset of the candidate functions. The number of parameters of each viable function agrees with the number of arguments 
+you used to call f().
+
+The compiler chooses the best viable function, the function declaration that the C++ run-time environment will use 
+when you call f(), from the set of viable functions. The compiler does this by implicit conversion sequences. 
+An implicit conversion sequence is the sequence of conversions required to convert an argument in a function call 
+to the type of the corresponding parameter in a function declaration. The implicit conversion sequences are ranked; 
+some implicit conversion sequences are better than others. The best viable function is the one whose parameters all
+have either better or equal-ranked implicit conversion sequences than all of the other viable functions. The compiler
+will not allow a program in which the compiler was able to find more than one best viable function. Implicit conversion
+sequences are described in more detail in Implicit conversion sequences (C++ only).
+
